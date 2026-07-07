@@ -1,68 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" fill="none">
   <defs>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f2d78a" />
-      <stop offset="30%" stop-color="#d4a853" />
-      <stop offset="60%" stop-color="#c9952c" />
-      <stop offset="100%" stop-color="#ecc44e" />
-    </linearGradient>
-    <linearGradient id="goldGradH" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#c9952c" />
-      <stop offset="50%" stop-color="#f2d78a" />
-      <stop offset="100%" stop-color="#c9952c" />
-    </linearGradient>
-    <linearGradient id="fadeEdge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#d4a853" stop-opacity="0" />
-      <stop offset="50%" stop-color="#d4a853" stop-opacity="0.4" />
-      <stop offset="100%" stop-color="#d4a853" stop-opacity="0" />
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4a853" />
+      <stop offset="50%" stop-color="#c9952c" />
+      <stop offset="100%" stop-color="#d4a853" />
     </linearGradient>
   </defs>
 
-  <!-- Ornate top border -->
-  <path d="M200 20 Q300 10 400 20" stroke="url(#fadeEdge)" stroke-width="1" fill="none" />
+  <!-- LS Monogram -->
+  <g transform="translate(300, 48)">
+    <rect x="-24" y="-24" width="48" height="48" rx="2" stroke="url(#g)" stroke-width="0.8" fill="none" opacity="0.3" />
+    <text x="0" y="9" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="600" fill="url(#g)" letter-spacing="-1">LS</text>
+  </g>
 
-  <!-- Crown / Crest top -->
-  <path d="M270 30 L275 18 L285 25 L300 10 L315 25 L325 18 L330 30 Z" fill="url(#goldGrad)" opacity="0.9" />
-  <path d="M265 30 Q300 38 335 30" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" />
-
-  <!-- Left wing flourish -->
-  <path d="M160 50 C180 35 210 30 240 40 C210 45 185 55 160 50Z" fill="url(#goldGrad)" opacity="0.3" />
-  <path d="M140 55 C160 40 190 35 220 45 C190 50 165 60 140 55Z" fill="url(#goldGrad)" opacity="0.2" />
-
-  <!-- Right wing flourish -->
-  <path d="M440 50 C420 35 390 30 360 40 C390 45 415 55 440 50Z" fill="url(#goldGrad)" opacity="0.3" />
-  <path d="M460 55 C440 40 410 35 380 45 C410 50 435 60 460 55Z" fill="url(#goldGrad)" opacity="0.2" />
-
-  <!-- Diamond emblem -->
-  <rect x="285" y="45" width="30" height="30" rx="3" transform="rotate(45 300 60)" stroke="url(#goldGrad)" stroke-width="1.5" fill="none" opacity="0.8" />
-  <rect x="292" y="52" width="16" height="16" rx="2" transform="rotate(45 300 60)" fill="url(#goldGrad)" />
-  <circle cx="300" cy="60" r="4" fill="#050505" />
-
-  <!-- Side ornamental dots -->
-  <circle cx="200" cy="60" r="2" fill="#d4a853" opacity="0.5" />
-  <circle cx="195" cy="55" r="1.5" fill="#d4a853" opacity="0.3" />
-  <circle cx="400" cy="60" r="2" fill="#d4a853" opacity="0.5" />
-  <circle cx="405" cy="55" r="1.5" fill="#d4a853" opacity="0.3" />
-
-  <!-- Ornate separator lines -->
-  <line x1="150" y1="78" x2="240" y2="78" stroke="url(#fadeEdge)" stroke-width="0.5" />
-  <line x1="360" y1="78" x2="450" y2="78" stroke="url(#fadeEdge)" stroke-width="0.5" />
-  <circle cx="300" cy="78" r="2" fill="#d4a853" opacity="0.6" />
-
-  <!-- LA SOCIEDAD text - serif elegant -->
-  <text x="300" y="115" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" font-size="34" font-weight="700" letter-spacing="10" fill="url(#goldGrad)">LA SOCIEDAD</text>
-
-  <!-- Gold underline -->
-  <line x1="170" y1="128" x2="430" y2="128" stroke="url(#goldGradH)" stroke-width="1" opacity="0.6" />
-  <line x1="220" y1="132" x2="380" y2="132" stroke="url(#goldGradH)" stroke-width="0.5" opacity="0.3" />
+  <!-- LA SOCIEDAD -->
+  <text x="300" y="100" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="22" font-weight="500" fill="#ffffff" letter-spacing="8">LA SOCIEDAD</text>
 
   <!-- Tagline -->
-  <text x="300" y="153" text-anchor="middle" font-family="'Inter', 'Arial', sans-serif" font-size="8.5" font-weight="300" letter-spacing="6" fill="#888" text-transform="uppercase">EXCLUSIVE VENUE — BY INVITATION ONLY</text>
+  <text x="300" y="122" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="300" fill="rgba(255,255,255,0.25)" letter-spacing="4">EXCLUSIVE VENUE · BY INVITATION ONLY</text>
 
-  <!-- Small decorative diamonds -->
-  <rect x="296" y="162" width="8" height="8" rx="1" transform="rotate(45 300 166)" fill="url(#goldGrad)" opacity="0.4" />
-
-  <!-- Bottom flourish -->
-  <path d="M160 185 C200 195 260 190 300 188 C340 190 400 195 440 185" stroke="url(#fadeEdge)" stroke-width="0.5" fill="none" />
-  <circle cx="300" cy="186" r="1.5" fill="#d4a853" opacity="0.4" />
+  <!-- Subtle line -->
+  <line x1="220" y1="112" x2="380" y2="112" stroke="url(#g)" stroke-width="0.3" opacity="0.2" />
 </svg>

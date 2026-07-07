@@ -44,44 +44,23 @@ export default function BookingCalendar() {
   const monthName = new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long' })
 
   const prevMonth = () => {
-    if (currentMonth === 0) {
-      setCurrentMonth(11)
-      setCurrentYear(currentYear - 1)
-    } else {
-      setCurrentMonth(currentMonth - 1)
-    }
-    setSelectedDate(null)
-    setSelectedTime(null)
+    if (currentMonth === 0) { setCurrentMonth(11); setCurrentYear(currentYear - 1) }
+    else { setCurrentMonth(currentMonth - 1) }
+    setSelectedDate(null); setSelectedTime(null)
   }
 
   const nextMonth = () => {
-    if (currentMonth === 11) {
-      setCurrentMonth(0)
-      setCurrentYear(currentYear + 1)
-    } else {
-      setCurrentMonth(currentMonth + 1)
-    }
-    setSelectedDate(null)
-    setSelectedTime(null)
+    if (currentMonth === 11) { setCurrentMonth(0); setCurrentYear(currentYear + 1) }
+    else { setCurrentMonth(currentMonth + 1) }
+    setSelectedDate(null); setSelectedTime(null)
   }
 
-  const isPastDate = (day) => {
-    const date = new Date(currentYear, currentMonth, day)
-    return date < today
-  }
+  const isPastDate = (day) => new Date(currentYear, currentMonth, day) < today
 
   const handleDateClick = (day) => {
     if (isPastDate(day)) return
     setSelectedDate(day)
     setSelectedTime(null)
-  }
-
-  const handleTimeClick = (time) => {
-    setSelectedTime(time)
-  }
-
-  const handleNextStep = () => {
-    if (step === 1 && selectedDate && selectedTime) setStep(2)
   }
 
   const handleSubmit = async (e) => {
@@ -110,248 +89,129 @@ export default function BookingCalendar() {
 
   if (submitted) {
     return (
-      <div className="text-center py-16">
-        <div className="w-20 h-20 rounded-full bg-gold-400/20 flex items-center justify-center mx-auto mb-6">
-          <svg className="w-10 h-10 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="text-center py-12">
+        <div className="w-16 h-16 mx-auto mb-4 rounded border gold-border flex items-center justify-center">
+          <svg className="w-6 h-6 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="font-serif text-3xl text-white mb-4">Booking Request Sent!</h3>
-        <p className="text-gray-400 max-w-md mx-auto">
-          Thank you! We&apos;ll review your request and get back to you within 24 hours to confirm your booking.
+        <h3 className="section-title text-2xl text-white mb-3">Request Sent</h3>
+        <div className="divider-line max-w-[60px] mx-auto mb-3" />
+        <p className="text-gray-500 text-sm max-w-sm mx-auto font-light">
+          We&apos;ll review your request and confirm within 24 hours.
         </p>
       </div>
     )
   }
 
-  const renderCalendar = () => {
-    const days = []
-    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-    days.push(
-      <div key="header" className="grid grid-cols-7 gap-1 mb-2">
-        {dayNames.map((name) => (
-          <div key={name} className="text-center text-xs text-gray-500 uppercase tracking-wider py-2">
-            {name}
-          </div>
-        ))}
-      </div>
-    )
-
-    const weeks = []
-    let dayCells = []
-
-    for (let i = 0; i < firstDayOfMonth; i++) {
-      dayCells.push(<div key={`empty-${i}`} />)
-    }
-
-    for (let day = 1; day <= daysInMonth; day++) {
-      const date = new Date(currentYear, currentMonth, day)
-      const isToday = date.getTime() === today.getTime()
-      const past = isPastDate(day)
-      const selected = selectedDate === day
-
-      dayCells.push(
-        <button
-          key={day}
-          onClick={() => handleDateClick(day)}
-          disabled={past}
-            className={`aspect-square flex items-center justify-center text-sm rounded-xl transition-all duration-300 ${
-            past
-              ? 'text-gray-700 cursor-not-allowed'
-              : selected
-                ? 'bg-gradient-to-br from-gold-500 to-gold-400 text-dark-950 font-medium shadow-lg shadow-gold-500/20'
-                : isToday
-                  ? 'border border-gold-400/30 text-gold-400 hover:bg-gold-400/10'
-                  : 'text-gray-300 hover:bg-white/5 hover:border-gold-400/20'
-            }`}
-        >
-          {day}
-        </button>
-      )
-
-      if ((firstDayOfMonth + day) % 7 === 0 || day === daysInMonth) {
-        weeks.push(
-          <div key={`week-${day}`} className="grid grid-cols-7 gap-1">
-            {dayCells}
-          </div>
-        )
-        dayCells = []
-      }
-    }
-
-    return (
-      <div>
-        <div className="flex items-center justify-between mb-6">
-          <button
-            onClick={prevMonth}
-            className="p-2 text-gray-400 hover:text-gold-400 transition-colors"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <h4 className="font-serif text-xl text-white">{monthName} {currentYear}</h4>
-          <button
-            onClick={nextMonth}
-            className="p-2 text-gray-400 hover:text-gold-400 transition-colors"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-        {days}
-        {weeks}
-      </div>
-    )
-  }
-
-  const renderTimeSlots = () => (
-    <div>
-      <h4 className="font-serif text-lg text-white mb-4">Select Time</h4>
-      <div className="grid grid-cols-3 gap-2">
-        {timeSlots.map((time) => (
-          <button
-            key={time}
-            onClick={() => handleTimeClick(time)}
-            className={`py-3 px-4 text-sm rounded-xl transition-all duration-300 ${
-              selectedTime === time
-                ? 'bg-gradient-to-br from-gold-500 to-gold-400 text-dark-950 font-medium shadow-lg shadow-gold-500/20'
-                : 'border border-white/5 text-gray-300 hover:border-gold-400/30 hover:text-gold-400 hover:bg-white/[0.02]'
-            }`}
-          >
-            {time}
-          </button>
-        ))}
-      </div>
+  const days = []
+  days.push(
+    <div key="header" className="grid grid-cols-7 gap-px mb-1">
+      {dayNames.map((name) => (
+        <div key={name} className="text-center text-[10px] text-gray-600 uppercase tracking-wider font-mono py-2">{name}</div>
+      ))}
     </div>
   )
 
-  const renderForm = () => (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Name *</label>
-          <input
-            type="text"
-            required
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300"
-          />
-        </div>
-        <div>
-          <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Email *</label>
-          <input
-            type="email"
-            required
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300"
-          />
-        </div>
-      </div>
+  let dayCells = []
+  for (let i = 0; i < firstDayOfMonth; i++) dayCells.push(<div key={`e-${i}`} />)
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Phone</label>
-          <input
-            type="tel"
-            value={form.phone}
-            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300"
-          />
-        </div>
-        <div>
-          <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Guests</label>
-          <select
-            value={form.guests}
-            onChange={(e) => setForm({ ...form, guests: e.target.value })}
-            className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300"
-          >
-            {[1,2,3,4,5,6,7,8,9,10,'10+'].map((n) => (
-              <option key={n} value={n} className="bg-dark-950">{n}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      <div>
-        <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Service Type *</label>
-        <select
-          required
-          value={form.service}
-          onChange={(e) => setForm({ ...form, service: e.target.value })}
-          className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300"
-        >
-          <option value="" className="bg-dark-950">Select a service</option>
-          {serviceOptions.map((s) => (
-            <option key={s} value={s} className="bg-dark-950">{s}</option>
-          ))}
-        </select>
-      </div>
-
-      <div>
-        <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Additional Details</label>
-        <textarea
-          rows={4}
-          value={form.message}
-          onChange={(e) => setForm({ ...form, message: e.target.value })}
-          className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300 resize-none"
-        />
-      </div>
-
-      {error && (
-        <p className="text-red-400 text-sm text-center">{error}</p>
-      )}
+  for (let day = 1; day <= daysInMonth; day++) {
+    const past = isPastDate(day)
+    const selected = selectedDate === day
+    dayCells.push(
       <button
-        type="submit"
-        disabled={submitting}
-        className="w-full py-4 bg-gradient-to-r from-gold-500 to-gold-400 text-dark-950 font-medium uppercase tracking-[0.2em] text-sm rounded-xl hover:shadow-[0_0_40px_rgba(212,168,83,0.2)] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-500"
+        key={day}
+        onClick={() => handleDateClick(day)}
+        disabled={past}
+        className={`aspect-square flex items-center justify-center text-xs rounded transition-all duration-200 ${
+          past ? 'text-gray-800 cursor-not-allowed' : selected
+            ? 'bg-gold-400 text-[#050505] font-medium'
+            : 'text-gray-400 hover:text-gold-400 hover:bg-white/[0.02]'
+        }`}
       >
-        {submitting ? 'Sending...' : 'Submit Booking Request'}
+        {day}
       </button>
-    </form>
-  )
+    )
+    if ((firstDayOfMonth + day) % 7 === 0 || day === daysInMonth) {
+      days.push(<div key={`w-${day}`} className="grid grid-cols-7 gap-px">{dayCells}</div>)
+      dayCells = []
+    }
+  }
 
   return (
     <div>
-      <div className="flex items-center justify-center gap-4 mb-12">
+      {/* Step indicator */}
+      <div className="flex items-center justify-center gap-4 mb-10">
         {[1, 2].map((s) => (
           <div key={s} className="flex items-center gap-2">
-            <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm font-medium ${
-              step >= s ? 'bg-gradient-to-br from-gold-500 to-gold-400 text-dark-950 shadow-lg shadow-gold-500/20' : 'bg-white/5 text-gray-500'
+            <div className={`w-7 h-7 rounded flex items-center justify-center text-[11px] font-mono ${
+              step >= s ? 'bg-gold-400 text-[#050505]' : 'border border-gold-400/10 text-gray-600'
             }`}>
               {s}
             </div>
-            <span className={`text-sm ${step >= s ? 'text-white' : 'text-gray-500'}`}>
+            <span className={`text-xs font-mono uppercase tracking-[0.1em] ${step >= s ? 'text-gray-300' : 'text-gray-600'}`}>
               {s === 1 ? 'Date & Time' : 'Details'}
             </span>
-            {s < 2 && <div className="w-12 h-[1px] bg-white/10 mx-2" />}
+            {s < 2 && <div className="w-8 h-[1px] bg-gold-400/10 mx-2" />}
           </div>
         ))}
       </div>
 
       {step === 1 ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {renderCalendar()}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Calendar */}
+          <div>
+            <div className="flex items-center justify-between mb-5">
+              <button onClick={prevMonth} className="p-1 text-gray-600 hover:text-gold-400 transition-colors">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <h4 className="section-title text-base text-white">{monthName} {currentYear}</h4>
+              <button onClick={nextMonth} className="p-1 text-gray-600 hover:text-gold-400 transition-colors">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+            {days}
+          </div>
+
+          {/* Time slots */}
           <div>
             {selectedDate && (
-              <div className="mb-6 p-4 border border-gold-400/20 rounded-lg bg-gold-400/5">
-                <p className="text-sm text-gray-400">Selected Date</p>
-                <p className="text-white font-medium">{monthName} {selectedDate}, {currentYear}</p>
+              <div className="mb-5 p-4 gold-border rounded">
+                <p className="text-gray-600 text-xs font-mono uppercase tracking-[0.1em]">Selected</p>
+                <p className="text-white text-sm font-medium mt-1">{monthName} {selectedDate}, {currentYear}</p>
               </div>
             )}
-            {renderTimeSlots()}
+            <h4 className="section-title text-sm text-white mb-4">Select Time</h4>
+            <div className="grid grid-cols-3 gap-2">
+              {timeSlots.map((time) => (
+                <button
+                  key={time}
+                  onClick={() => setSelectedTime(time)}
+                  className={`py-2.5 px-3 text-xs rounded transition-all duration-200 ${
+                    selectedTime === time
+                      ? 'bg-gold-400 text-[#050505] font-medium'
+                      : 'border gold-border text-gray-400 hover:border-gold-400/30 hover:text-gold-400'
+                  }`}
+                >
+                  {time}
+                </button>
+              ))}
+            </div>
 
             <button
-              onClick={handleNextStep}
+              onClick={() => setStep(2)}
               disabled={!selectedDate || !selectedTime}
-              className={`w-full mt-8 py-4 rounded-xl font-medium uppercase tracking-[0.2em] text-sm transition-all duration-500 ${
+              className={`w-full mt-6 py-3 rounded text-xs font-mono uppercase tracking-[0.15em] transition-all duration-300 ${
                 selectedDate && selectedTime
-                  ? 'bg-gradient-to-r from-gold-500 to-gold-400 text-dark-950 hover:shadow-[0_0_40px_rgba(212,168,83,0.2)]'
-                  : 'bg-white/5 text-gray-500 cursor-not-allowed'
+                  ? 'gold-btn'
+                  : 'border gold-border text-gray-600 cursor-not-allowed'
               }`}
             >
               Continue
@@ -359,19 +219,63 @@ export default function BookingCalendar() {
           </div>
         </div>
       ) : (
-        <div className="max-w-2xl mx-auto">
-          <div className="mb-8 p-4 border border-gold-400/20 rounded-lg bg-gold-400/5">
-            <p className="text-sm text-gray-400">
+        <div className="max-w-xl mx-auto">
+          <div className="mb-6 p-4 gold-border rounded">
+            <p className="text-gray-600 text-xs font-mono">
               {monthName} {selectedDate}, {currentYear} at {selectedTime}
             </p>
-            <button
-              onClick={() => setStep(1)}
-              className="text-gold-400 text-sm hover:underline mt-1 inline-block"
-            >
-              Change date/time
+            <button onClick={() => setStep(1)} className="text-gold-400 text-xs font-mono hover:underline mt-1 inline-block">
+              Change
             </button>
           </div>
-          {renderForm()}
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-xs text-gray-600 mb-2 uppercase tracking-[0.15em] font-mono">Name *</label>
+                <input type="text" required value={form.name} onChange={(e) => setForm({...form, name: e.target.value})} className="futuristic-input rounded w-full px-4 py-3 text-sm text-white" />
+              </div>
+              <div>
+                <label className="block text-xs text-gray-600 mb-2 uppercase tracking-[0.15em] font-mono">Email *</label>
+                <input type="email" required value={form.email} onChange={(e) => setForm({...form, email: e.target.value})} className="futuristic-input rounded w-full px-4 py-3 text-sm text-white" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-xs text-gray-600 mb-2 uppercase tracking-[0.15em] font-mono">Phone</label>
+                <input type="tel" value={form.phone} onChange={(e) => setForm({...form, phone: e.target.value})} className="futuristic-input rounded w-full px-4 py-3 text-sm text-white" />
+              </div>
+              <div>
+                <label className="block text-xs text-gray-600 mb-2 uppercase tracking-[0.15em] font-mono">Guests</label>
+                <select value={form.guests} onChange={(e) => setForm({...form, guests: e.target.value})} className="futuristic-input rounded w-full px-4 py-3 text-sm text-white">
+                  {[1,2,3,4,5,6,7,8,9,10,'10+'].map((n) => (
+                    <option key={n} value={n} className="bg-[#050505]">{n}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs text-gray-600 mb-2 uppercase tracking-[0.15em] font-mono">Service *</label>
+              <select required value={form.service} onChange={(e) => setForm({...form, service: e.target.value})} className="futuristic-input rounded w-full px-4 py-3 text-sm text-white">
+                <option value="" className="bg-[#050505]">Select a service</option>
+                {serviceOptions.map((s) => (
+                  <option key={s} value={s} className="bg-[#050505]">{s}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-xs text-gray-600 mb-2 uppercase tracking-[0.15em] font-mono">Details</label>
+              <textarea rows={3} value={form.message} onChange={(e) => setForm({...form, message: e.target.value})} className="futuristic-input rounded w-full px-4 py-3 text-sm text-white resize-none" />
+            </div>
+
+            {error && <p className="text-red-400 text-xs text-center">{error}</p>}
+            <button type="submit" disabled={submitting} className="gold-btn w-full py-3.5 rounded text-xs">
+              {submitting ? 'Sending...' : 'Submit Booking Request'}
+            </button>
+          </form>
         </div>
       )}
     </div>
