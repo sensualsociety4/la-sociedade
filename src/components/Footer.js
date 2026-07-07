@@ -8,24 +8,28 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-950 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer className="bg-dark-950 border-t border-gold-400/5 relative">
+      <div className="absolute inset-0 opacity-[0.015]" style={{
+        backgroundImage: 'radial-gradient(circle at 50% 50%, #d4a853 1px, transparent 1px)',
+        backgroundSize: '40px 40px',
+      }} />
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
           <div>
-            <img src="/logo.svg" alt="LA SOCIEDAD" className="h-10 mb-4" />
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <img src="/logo.svg" alt="LA SOCIEDAD" className="h-14 mb-6" />
+            <p className="text-gray-500 text-sm leading-relaxed font-light">
               The only venue of its kind in Victoria. Bondage furniture, DJ decks, gold pole — by invitation only.
             </p>
           </div>
 
           <div>
-            <h4 className="text-white font-medium uppercase tracking-[0.1em] text-sm mb-4">Quick Links</h4>
-            <div className="flex flex-col gap-3">
+            <h4 className="text-white/80 font-medium uppercase tracking-[0.2em] text-xs mb-6">Quick Links</h4>
+            <div className="flex flex-col gap-4">
               {['About', 'Services', 'Gallery', 'Booking', 'Contact'].map((link) => (
                 <Link
                   key={link}
                   href={`/${link.toLowerCase()}`}
-                  className="text-gray-400 hover:text-gold-400 text-sm transition-colors duration-300"
+                  className="text-gray-500 hover:text-gold-400 text-sm transition-all duration-300"
                 >
                   {link}
                 </Link>
@@ -34,19 +38,19 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-medium uppercase tracking-[0.1em] text-sm mb-4">Connect</h4>
-            <div className="flex gap-4">
+            <h4 className="text-white/80 font-medium uppercase tracking-[0.2em] text-xs mb-6">Connect</h4>
+            <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group hover:border-gold-400 transition-all duration-300"
+                  className="w-11 h-11 rounded-xl border border-white/5 flex items-center justify-center group hover:border-gold-400/30 hover:bg-gold-400/5 transition-all duration-500"
                   aria-label={social.name}
                 >
                   <svg
-                    className="w-5 h-5 text-gray-400 group-hover:text-gold-400 transition-colors duration-300"
+                    className="w-5 h-5 text-gray-500 group-hover:text-gold-400 transition-colors duration-300"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -58,11 +62,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-xs">
+        <div className="gold-line mt-16 mb-8" />
+
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-gray-600 text-xs font-light">
             &copy; {new Date().getFullYear()} LA SOCIEDAD. All rights reserved.
           </p>
-          <p className="text-gray-500 text-xs">
+          <p className="text-gray-600 text-xs font-light">
             By invitation only.
           </p>
         </div>

@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 
 const timeSlots = [
-  '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00',
+  '18:00', '19:00', '20:00', '21:00', '22:00', '23:00', '00:00', '01:00', '02:00',
 ]
 
 const serviceOptions = [
@@ -156,15 +156,15 @@ export default function BookingCalendar() {
           key={day}
           onClick={() => handleDateClick(day)}
           disabled={past}
-          className={`aspect-square flex items-center justify-center text-sm rounded-full transition-all duration-200 ${
+            className={`aspect-square flex items-center justify-center text-sm rounded-xl transition-all duration-300 ${
             past
               ? 'text-gray-700 cursor-not-allowed'
               : selected
-                ? 'bg-gold-400 text-dark-950 font-medium'
+                ? 'bg-gradient-to-br from-gold-500 to-gold-400 text-dark-950 font-medium shadow-lg shadow-gold-500/20'
                 : isToday
-                  ? 'border border-gold-400/50 text-gold-400 hover:bg-gold-400/10'
-                  : 'text-gray-300 hover:bg-white/5'
-          }`}
+                  ? 'border border-gold-400/30 text-gold-400 hover:bg-gold-400/10'
+                  : 'text-gray-300 hover:bg-white/5 hover:border-gold-400/20'
+            }`}
         >
           {day}
         </button>
@@ -215,10 +215,10 @@ export default function BookingCalendar() {
           <button
             key={time}
             onClick={() => handleTimeClick(time)}
-            className={`py-3 px-4 text-sm rounded transition-all duration-200 ${
+            className={`py-3 px-4 text-sm rounded-xl transition-all duration-300 ${
               selectedTime === time
-                ? 'bg-gold-400 text-dark-950 font-medium'
-                : 'border border-white/10 text-gray-300 hover:border-gold-400/50 hover:text-gold-400'
+                ? 'bg-gradient-to-br from-gold-500 to-gold-400 text-dark-950 font-medium shadow-lg shadow-gold-500/20'
+                : 'border border-white/5 text-gray-300 hover:border-gold-400/30 hover:text-gold-400 hover:bg-white/[0.02]'
             }`}
           >
             {time}
@@ -232,43 +232,43 @@ export default function BookingCalendar() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm text-gray-400 mb-2 uppercase tracking-[0.1em]">Name *</label>
+          <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Name *</label>
           <input
             type="text"
             required
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className="w-full bg-transparent border border-white/10 rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-400 transition-colors"
+            className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300"
           />
         </div>
         <div>
-          <label className="block text-sm text-gray-400 mb-2 uppercase tracking-[0.1em]">Email *</label>
+          <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Email *</label>
           <input
             type="email"
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full bg-transparent border border-white/10 rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-400 transition-colors"
+            className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300"
           />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm text-gray-400 mb-2 uppercase tracking-[0.1em]">Phone</label>
+          <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Phone</label>
           <input
             type="tel"
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            className="w-full bg-transparent border border-white/10 rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-400 transition-colors"
+            className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300"
           />
         </div>
         <div>
-          <label className="block text-sm text-gray-400 mb-2 uppercase tracking-[0.1em]">Guests</label>
+          <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Guests</label>
           <select
             value={form.guests}
             onChange={(e) => setForm({ ...form, guests: e.target.value })}
-            className="w-full bg-transparent border border-white/10 rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-400 transition-colors"
+            className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300"
           >
             {[1,2,3,4,5,6,7,8,9,10,'10+'].map((n) => (
               <option key={n} value={n} className="bg-dark-950">{n}</option>
@@ -278,12 +278,12 @@ export default function BookingCalendar() {
       </div>
 
       <div>
-        <label className="block text-sm text-gray-400 mb-2 uppercase tracking-[0.1em]">Service Type *</label>
+        <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Service Type *</label>
         <select
           required
           value={form.service}
           onChange={(e) => setForm({ ...form, service: e.target.value })}
-          className="w-full bg-transparent border border-white/10 rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-400 transition-colors"
+          className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300"
         >
           <option value="" className="bg-dark-950">Select a service</option>
           {serviceOptions.map((s) => (
@@ -293,12 +293,12 @@ export default function BookingCalendar() {
       </div>
 
       <div>
-        <label className="block text-sm text-gray-400 mb-2 uppercase tracking-[0.1em]">Additional Details</label>
+        <label className="block text-xs text-gray-500 mb-2 uppercase tracking-[0.2em]">Additional Details</label>
         <textarea
           rows={4}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
-          className="w-full bg-transparent border border-white/10 rounded px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-400 transition-colors resize-none"
+          className="w-full bg-white/5 border border-white/5 rounded-xl px-4 py-3.5 text-white text-sm focus:outline-none focus:border-gold-400/40 focus:bg-white/[0.03] transition-all duration-300 resize-none"
         />
       </div>
 
@@ -308,7 +308,7 @@ export default function BookingCalendar() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full py-4 bg-gold-400 text-dark-950 font-medium uppercase tracking-[0.15em] text-sm hover:bg-gold-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 rounded"
+        className="w-full py-4 bg-gradient-to-r from-gold-500 to-gold-400 text-dark-950 font-medium uppercase tracking-[0.2em] text-sm rounded-xl hover:shadow-[0_0_40px_rgba(212,168,83,0.2)] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-500"
       >
         {submitting ? 'Sending...' : 'Submit Booking Request'}
       </button>
@@ -320,8 +320,8 @@ export default function BookingCalendar() {
       <div className="flex items-center justify-center gap-4 mb-12">
         {[1, 2].map((s) => (
           <div key={s} className="flex items-center gap-2">
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-              step >= s ? 'bg-gold-400 text-dark-950' : 'bg-white/5 text-gray-500'
+            <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-sm font-medium ${
+              step >= s ? 'bg-gradient-to-br from-gold-500 to-gold-400 text-dark-950 shadow-lg shadow-gold-500/20' : 'bg-white/5 text-gray-500'
             }`}>
               {s}
             </div>
@@ -348,9 +348,9 @@ export default function BookingCalendar() {
             <button
               onClick={handleNextStep}
               disabled={!selectedDate || !selectedTime}
-              className={`w-full mt-8 py-4 rounded font-medium uppercase tracking-[0.15em] text-sm transition-all duration-300 ${
+              className={`w-full mt-8 py-4 rounded-xl font-medium uppercase tracking-[0.2em] text-sm transition-all duration-500 ${
                 selectedDate && selectedTime
-                  ? 'bg-gold-400 text-dark-950 hover:bg-gold-300'
+                  ? 'bg-gradient-to-r from-gold-500 to-gold-400 text-dark-950 hover:shadow-[0_0_40px_rgba(212,168,83,0.2)]'
                   : 'bg-white/5 text-gray-500 cursor-not-allowed'
               }`}
             >
