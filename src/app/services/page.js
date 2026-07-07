@@ -4,27 +4,27 @@ import Link from 'next/link'
 
 const services = [
   {
-    title: 'Private Social Events',
-    desc: 'Intimate gatherings at exclusive venues. Curated guest lists, premium amenities, and unforgettable atmospheres.',
-    features: ['Private venues', 'Curated guest lists', 'Premium bar & catering', 'Professional host'],
-    price: 'From $2,500',
-  },
-  {
-    title: 'Swingers Socials',
-    desc: 'Sophisticated events for open-minded couples and singles. A respectful, discreet environment to connect and explore.',
-    features: ['Discreet environment', 'Vetted attendees', 'Lounge & play areas', 'Strict privacy policy'],
+    title: 'Swingers Nights — By Invitation',
+    desc: 'Exclusive swingers events at the only dedicated sex venue in Victoria. Full bondage furniture, toys, DJ decks, and gold pole — all included.',
+    features: ['By invitation only', 'Full bondage furniture included', 'All toys provided', 'DJ decks & gold stripping pole'],
     price: 'From $150/person',
   },
   {
-    title: 'Exclusive Parties',
-    desc: 'High-energy celebrations with top-tier entertainment, premium drinks, and an electric atmosphere.',
-    features: ['Live entertainment', 'Premium open bar', 'VIP seating', 'Photography'],
-    price: 'From $5,000',
+    title: 'Private Kinky Parties',
+    desc: 'Book the entire venue for your own private sex party. Huge kinky room, living room lounge, and complete access to all facilities.',
+    features: ['Exclusive venue hire', 'Full bondage & toy access', 'Living room with DJ decks', 'Gold stripping pole'],
+    price: 'From $2,500',
   },
   {
-    title: 'VIP Event Hosting',
-    desc: 'Full-service event hosting — we handle everything from venue selection to guest management and entertainment.',
-    features: ['Full event planning', 'Venue selection', 'Guest management', 'Concierge service'],
+    title: 'Bondage & BDSM Experiences',
+    desc: 'Dedicated BDSM sessions in our fully equipped kinky room. Bondage furniture, restraints, spanking benches, and more — all set and ready.',
+    features: ['Full BDSM furniture setup', 'Restraints & impact toys', 'Private dungeon space', 'Professional-grade equipment'],
+    price: 'From $500',
+  },
+  {
+    title: 'VIP Sex Party Hosting',
+    desc: 'The ultimate VIP experience. Curated guest list, private DJ, premium bar, and full access to every room including the kinky room and pole.',
+    features: ['Curated guest list', 'Private DJ', 'Premium bar included', 'Full venue access'],
     price: 'Custom quote',
   },
 ]

@@ -14,7 +14,7 @@ export default function Footer() {
           <div>
             <img src="/logo.svg" alt="LA SOCIEDAD" className="h-10 mb-4" />
             <p className="text-gray-400 text-sm leading-relaxed">
-              An exclusive venue built on total discretion. Where high standards meet deep luxury.
+              The only venue of its kind in Victoria. Bondage furniture, DJ decks, gold pole — by invitation only.
             </p>
           </div>
 

@@ -7,11 +7,11 @@ const timeSlots = [
 ]
 
 const serviceOptions = [
-  'Private Social Event',
-  'Swingers Social',
-  'Exclusive Party',
-  'VIP Event Hosting',
-  'Bespoke Event',
+  'Swingers Night',
+  'Private Kinky Party',
+  'Bondage & BDSM Experience',
+  'VIP Sex Party',
+  'Full Venue Hire',
   'Other',
 ]
 

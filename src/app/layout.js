@@ -4,10 +4,10 @@ import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'LA SOCIEDAD | Exclusive Events & Experiences',
-  description: 'An exclusive venue built on total discretion. Where high standards meet deep luxury.',
+  description: 'The most sex-dedicated venue in Victoria. By invitation only. Full bondage furniture, toys, DJ decks, and gold stripping pole.',
   openGraph: {
     title: 'LA SOCIEDAD | Exclusive Events & Experiences',
-    description: 'Premium social events, exclusive gatherings, and unforgettable experiences.',
+    description: 'The most sex-dedicated venue in Victoria. Bondage furniture, DJ decks, gold pole — by invitation only.',
     siteName: 'LA SOCIEDAD',
     locale: 'en_US',
     type: 'website',

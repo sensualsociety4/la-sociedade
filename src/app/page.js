@@ -23,7 +23,7 @@ export default function Home() {
               <span className="text-gold-400">LA SOCIEDAD</span>
             </h1>
             <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-              Where high standards meet deep luxury. An exclusive venue built on total discretion — curating unforgettable experiences for those who seek the extraordinary.
+              The only venue of its kind in Victoria — by invitation only. A dedicated sex venue with a huge kinky room, full bondage furniture and toys, a living room with DJ decks, and a gold stripping pole. If you want to experience the most sex-dedicated venue, this is the one.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link
@@ -59,9 +59,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Exclusive Venue', desc: 'A private sanctuary reserved for those who demand the finest. Every space curated for luxury and intimacy.', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
-              { title: 'Total Discretion', desc: 'Your privacy is our foundation. Every interaction handled with the utmost confidentiality and respect.', icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' },
-              { title: 'Deep Luxury', desc: 'Where high standards meet deep luxury. Every detail meticulously crafted to exceed expectations.', icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z' },
+              { title: 'Huge Kinky Room', desc: 'A dedicated space equipped with full bondage furniture and toys — the centrepiece of your most adventurous nights.', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
+              { title: 'Living Room & DJ Decks', desc: 'A sophisticated lounge with professional DJ decks and a stunning gold stripping pole. Dance, connect, and set the mood.', icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z' },
+              { title: 'By Invitation Only', desc: 'Exclusive swingers events for those who appreciate discretion, luxury, and the finest adult entertainment Victoria has to offer.', icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' },
             ].map((item, i) => (
               <div key={i} className="group p-8 border border-white/5 hover:border-gold-400/30 transition-all duration-500 rounded-lg">
                 <div className="w-14 h-14 rounded-full bg-gold-400/10 flex items-center justify-center mb-6 group-hover:bg-gold-400/20 transition-all duration-500">
@@ -82,7 +82,7 @@ export default function Home() {
           <p className="text-gold-400 uppercase tracking-[0.2em] text-sm mb-4">By Invitation Only</p>
           <h2 className="font-serif text-4xl md:text-5xl text-white mb-8">The Experience Awaits</h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
-            An exclusive venue built on total discretion, where high standards meet deep luxury. Join us for unparalleled experiences beyond the ordinary.
+            The most sex-dedicated venue in Victoria — by invitation only. Full bondage furniture, toys, DJ decks, gold pole, and a huge kinky room await. This is the only venue with this type of facilities in Victoria.
           </p>
           <Link
             href="/contact"
