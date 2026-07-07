@@ -17,13 +17,13 @@ export default function About() {
             <h2 className="font-serif text-3xl text-white mb-6">Redefining Social Entertainment</h2>
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                LA SOCIEDAD was founded on a simple belief: that the finest experiences are those shared with others. We create spaces where elegance, excitement, and exclusivity converge to produce unforgettable moments.
+                LA SOCIEDAD was founded on a single vision: to create the most exclusive venue where high standards meet deep luxury. Every detail, every space, every experience is crafted for those who demand the extraordinary.
               </p>
               <p>
-                Our events are carefully curated to provide a sophisticated yet liberating atmosphere. From intimate gatherings to grand celebrations, every detail is crafted with precision and passion.
+                We operate on a foundation of total discretion. Privacy is not just a policy — it is our promise. Within our walls, guests are free to explore, connect, and indulge without reservation.
               </p>
               <p>
-                We believe in discretion, quality, and the art of connection. Our members and guests are discerning individuals who appreciate the extraordinary.
+                From intimate gatherings to grand celebrations, we curate each event with meticulous attention to detail. Our members are discerning individuals who appreciate refined luxury and uncompromising quality.
               </p>
             </div>
           </div>
@@ -39,9 +39,9 @@ export default function About() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
           {[
-            { number: 'Exclusive', text: 'Members-only events curated for a select clientele' },
-            { number: 'Discreet', text: 'Privacy and confidentiality are our highest priorities' },
-            { number: 'Refined', text: 'Every detail crafted to the highest standards of quality' },
+            { number: 'Exclusive Venue', text: 'Members-only sanctuary reserved for the discerning few' },
+            { number: 'Total Discretion', text: 'Absolute privacy and confidentiality at every step' },
+            { number: 'Deep Luxury', text: 'Where high standards meet deep, uncompromising luxury' },
           ].map((item, i) => (
             <div key={i} className="text-center p-8 border border-white/5 rounded-lg">
               <p className="font-serif text-3xl text-gold-400 mb-3">{item.number}</p>

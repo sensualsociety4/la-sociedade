@@ -14,7 +14,7 @@ export default function Footer() {
           <div>
             <img src="/logo.svg" alt="LA SOCIEDAD" className="h-10 mb-4" />
             <p className="text-gray-400 text-sm leading-relaxed">
-              Curating exclusive experiences and memorable gatherings for discerning clientele.
+              An exclusive venue built on total discretion. Where high standards meet deep luxury.
             </p>
           </div>
 

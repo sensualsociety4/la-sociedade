@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'LA SOCIEDAD | Exclusive Events & Experiences',
-  description: 'Premium social events, exclusive gatherings, and unforgettable experiences. Book your next event with LA SOCIEDAD.',
+  description: 'An exclusive venue built on total discretion. Where high standards meet deep luxury.',
   openGraph: {
     title: 'LA SOCIEDAD | Exclusive Events & Experiences',
     description: 'Premium social events, exclusive gatherings, and unforgettable experiences.',
