@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Bebas+Neue&family=JetBrains+Mono:wght@300;400;500&display=swap');
 
 * {
   box-sizing: border-box;
@@ -22,7 +22,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(212, 168, 83, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
 
@@ -35,175 +35,67 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4a853;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
 }
 
-.gold-border {
-  border: 1px solid rgba(212, 168, 83, 0.15);
+@layer components {
+  .gold-line {
+    @apply w-full h-[1px] bg-gradient-to-r from-transparent via-gold-400/20 to-transparent;
+  }
+
+  .section-label {
+    @apply text-[10px] uppercase tracking-[0.3em] text-gray-600 font-mono;
+  }
+
+  .gold-btn {
+    @apply bg-gold-400 text-[#050505] font-medium text-xs uppercase tracking-[0.15em] px-6 py-3 transition-all duration-300;
+  }
+
+  .gold-btn:hover {
+    @apply bg-gold-300;
+  }
+
+  .gold-btn-outline {
+    @apply border border-gold-400/20 text-gold-400 text-xs uppercase tracking-[0.15em] px-6 py-3 transition-all duration-300;
+  }
+
+  .gold-btn-outline:hover {
+    @apply border-gold-400/40;
+  }
+
+  .poster-card {
+    @apply border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent transition-all duration-500;
+  }
+
+  .poster-card:hover {
+    @apply border-white/10;
+  }
 }
 
-.gold-border-b {
-  border-bottom: 1px solid rgba(212, 168, 83, 0.15);
-}
+@layer utilities {
+  .heading-xl {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: clamp(4rem, 12vw, 10rem);
+    line-height: 0.85;
+    letter-spacing: -0.01em;
+  }
 
-.gold-border-t {
-  border-top: 1px solid rgba(212, 168, 83, 0.15);
-}
+  .heading-lg {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+  }
 
-.gold-border-l {
-  border-left: 1px solid rgba(212, 168, 83, 0.15);
-}
+  .heading-md {
+    font-family: 'Bebas Neue', Impact, sans-serif;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
 
-.gold-border-r {
-  border-right: 1px solid rgba(212, 168, 83, 0.15);
+  .body-sm {
+    @apply text-xs text-gray-500 leading-relaxed font-light;
+  }
 }
-
-.gold-card {
-  border: 1px solid rgba(212, 168, 83, 0.08);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.gold-card:hover {
-  border-color: rgba(212, 168, 83, 0.2);
-  background: linear-gradient(180deg, rgba(212, 168, 83, 0.03) 0%, transparent 100%);
-}
-
-.gold-text {
-  color: #d4a853;
-}
-
-.gold-gradient-text {
-  background: linear-gradient(135deg, #d4a853 0%, #c9952c 50%, #d4a853 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.section-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(212, 168, 83, 0.6);
-}
-
-.section-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-}
-
-.divider-line {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.15), transparent);
-}
-
-.futuristic-input {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(212, 168, 83, 0.08);
-  transition: all 0.3s ease;
-  outline: none;
-}
-
-.futuristic-input:focus {
-  border-color: rgba(212, 168, 83, 0.3);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.futuristic-input::placeholder {
-  color: rgba(255, 255, 255, 0.15);
-}
-
-.gold-btn {
-  background: linear-gradient(135deg, #d4a853 0%, #c9952c 100%);
-  color: #050505;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  border: none;
-  cursor: pointer;
-}
-
-.gold-btn:hover {
-  box-shadow: 0 0 40px rgba(212, 168, 83, 0.15);
-  transform: translateY(-1px);
-}
-
-.gold-btn-outline {
-  background: transparent;
-  border: 1px solid rgba(212, 168, 83, 0.2);
-  color: #d4a853;
-  font-weight: 400;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-}
-
-.gold-btn-outline:hover {
-  border-color: rgba(212, 168, 83, 0.4);
-  background: rgba(212, 168, 83, 0.03);
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideRight {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.97); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.animate-fade-up {
-  animation: fadeUp 0.7s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-.animate-slide-right {
-  animation: slideRight 0.6s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.5s ease-out forwards;
-}
-
-.shimmer-text {
-  background: linear-gradient(90deg, #c9952c 0%, #d4a853 30%, #f2d78a 50%, #d4a853 70%, #c9952c 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 4s linear infinite;
-}
-
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
