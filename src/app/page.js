@@ -29,11 +29,8 @@ export default function Home() {
   return (
     <div>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#050505] to-[#000]" />
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)',
-          backgroundSize: '48px 48px',
-        }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/hero-bg.jpg)' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/70 via-[#050505]/50 to-[#050505]/90" />
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
           <p className="section-label mb-6 animate-fade-in">Victoria&apos;s premier sex venue</p>
           <h1 className="heading-xl text-white animate-slide-up">
