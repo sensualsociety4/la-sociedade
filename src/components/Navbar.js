@@ -41,8 +41,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="animate-pulse-subtle inline-block">
-            <img src="/nav-logo.svg" alt="LA SOCIEDAD" className="h-10 w-auto" />
+          <Link href="/" className="animate-pulse-subtle inline-block mt-48">
+            <img src="/nav-logo.svg" alt="LA SOCIEDAD" className="h-32 w-auto" />
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
