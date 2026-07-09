@@ -35,6 +35,38 @@ const services = [
     features: ['Curated guest list', 'Private DJ', 'Premium bar included', 'Full venue access'],
     price: 'Custom',
   },
+  {
+    number: '05',
+    title: 'OnlyFans Content Creation',
+    tag: 'Professional Studio',
+    desc: 'Professional content creation space for your OnlyFans productions. Full bondage furniture, sets, and equipment available.',
+    features: ['Professional lighting setup', 'Multiple themed sets', 'Bondage & BDSM props', 'Private filming space'],
+    price: 'From $200',
+  },
+  {
+    number: '06',
+    title: 'Adult Movie Filming',
+    tag: 'Production Ready',
+    desc: 'Full venue available for adult film productions. Huge kinky room, living room with DJ decks, and gold pole — a complete set.',
+    features: ['Full venue access', 'Equipment ready', 'Multiple shooting locations', 'Private changing rooms'],
+    price: 'From $1,000',
+  },
+  {
+    number: '07',
+    title: 'Photoshoots',
+    tag: 'Boudoir & Erotic',
+    desc: 'Book our venue for professional photoshoots. Multiple backdrops, professional lighting, and intimate atmosphere.',
+    features: ['Professional lighting', 'Multiple backdrops', 'Changing room', 'Gold pole & sets'],
+    price: 'From $150',
+  },
+  {
+    number: '08',
+    title: 'Poker Nights',
+    tag: 'Exclusive Games',
+    desc: 'High-stakes poker nights in our luxurious living room. Professional DJ, premium bar, and adult entertainment throughout the evening.',
+    features: ['Professional dealer', 'Premium bar', 'DJ decks', 'Full venue access'],
+    price: 'From $500',
+  },
 ]
 
 export default function Services() {
