@@ -28,10 +28,10 @@ const events = [
 export default function Home() {
   return (
     <div>
-      <section className="relative h-[70vh] flex items-end justify-center overflow-hidden">
+      <section className="relative h-[35vh] flex items-end justify-center overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-top" style={{ backgroundImage: 'url(/hero-bg.jpg)' }} />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/20 to-[#050505]/80" />
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto mb-16">
+        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto mb-8">
           <p className="section-label mb-6 animate-fade-in">Victoria&apos;s premier sex venue</p>
           <p className="text-gray-400 text-sm max-w-md mx-auto mb-10 animate-fade-in">
             Bondage furniture, DJ decks, gold pole — by invitation only.
