@@ -28,9 +28,9 @@ const events = [
 export default function Home() {
   return (
     <div>
-      <section className="bg-[#050505] pt-16 pb-16 px-6">
+      <section className="bg-[#050505] pt-20 pb-16 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <img src="/hero-bg.jpg" alt="LA SOCIEDAD" className="w-full max-w-[755px] mx-auto mb-12 -mt-56" />
+          <img src="/hero-bg.jpg" alt="LA SOCIEDAD" className="w-full max-w-[755px] mx-auto mb-12 -mt-28" />
           <p className="section-label mb-6">Victoria&apos;s premier sex venue</p>
           <p className="text-gray-400 text-sm max-w-md mx-auto mb-10">
             Bondage furniture, DJ decks, gold pole — by invitation only.
