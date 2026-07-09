@@ -41,7 +41,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="text-white text-2xl uppercase tracking-[0.6em] font-bold no-underline mt-32" style={{ textShadow: '0 0 10px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.1), 2px 2px 0 rgba(0,0,0,0.5), 4px 4px 0 rgba(0,0,0,0.3)', animation: 'spin3d 4s linear infinite', perspective: '800px', display: 'inline-block', transformStyle: 'preserve-3d' }}>
+          <Link href="/" className="text-white text-2xl uppercase tracking-[0.6em] font-bold no-underline mt-32" style={{ textShadow: '0 0 10px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.1), 2px 2px 0 rgba(0,0,0,0.5), 4px 4px 0 rgba(0,0,0,0.3)', animation: 'spin3d 10s linear infinite', perspective: '800px', display: 'inline-block', transformStyle: 'preserve-3d' }}>
             LA SOCIEDAD
           </Link>
 
