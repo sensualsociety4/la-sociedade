@@ -78,6 +78,15 @@ body {
   100% { transform: perspective(800px) rotateY(360deg); }
 }
 
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.05); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
 @layer utilities {
   .heading-xl {
     font-family: 'Bebas Neue', Impact, sans-serif;
