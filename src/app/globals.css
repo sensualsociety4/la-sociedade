@@ -73,11 +73,9 @@ body {
   }
 }
 
-@keyframes rotate3d {
-  0%, 100% { transform: perspective(800px) rotateY(0deg) rotateX(0deg); }
-  25% { transform: perspective(800px) rotateY(-10deg) rotateX(5deg); }
-  50% { transform: perspective(800px) rotateY(0deg) rotateX(-5deg); }
-  75% { transform: perspective(800px) rotateY(10deg) rotateX(5deg); }
+@keyframes spin3d {
+  0% { transform: perspective(800px) rotateY(0deg); }
+  100% { transform: perspective(800px) rotateY(360deg); }
 }
 
 @layer utilities {
